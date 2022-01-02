@@ -1,19 +1,30 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 
-type Props = {
-  textAreaRef: React.RefObject<HTMLTextAreaElement>;
-};
-
-export const TextBoard = (props: Props) => {
+export const TextBoard = () => {
   const [content, setContent] = useState("");
   return (
     <TextArea
-      ref={props.textAreaRef}
       value={content}
       onChange={(e) => setContent(e.target.value)}
+      autoFocus
     />
   );
 };
 
-const TextArea = styled.textarea({ width: "100%", height: "100%" });
+const TextArea = styled.textarea({
+  width: "100%",
+  height: "100%",
+  background: "inherit",
+  border: "none",
+  ":focus": {
+    outline: "none",
+  },
+  color: "#fff",
+  fontSize: "22px",
+  lineHeight: "200%",
+  resize: "none",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
+});

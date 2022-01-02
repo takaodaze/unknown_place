@@ -14,7 +14,7 @@ export const Outer: FC = ({ children }) => {
 
 const Frame = styled.div((props: { width: number; height: number }) => ({
   boxSizing: "border-box",
-  padding: "20px",
+  padding: "40px",
   width: `${props.width}`,
   height: `${props.height}px`,
 }));
