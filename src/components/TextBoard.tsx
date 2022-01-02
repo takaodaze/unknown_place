@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useState } from "react";
 
-export const TextBoard = () => {
+type Props = {
+  textAreaRef: React.RefObject<HTMLTextAreaElement>;
+};
+
+export const TextBoard = (props: Props) => {
+  const [content, setContent] = useState("");
   return (
-    <div>
-      <TextArea />
-    </div>
+    <TextArea
+      ref={props.textAreaRef}
+      value={content}
+      onChange={(e) => setContent(e.target.value)}
+    />
   );
 };
 
-const TextArea = styled.textarea({});
+const TextArea = styled.textarea({ width: "100%", height: "100%" });
